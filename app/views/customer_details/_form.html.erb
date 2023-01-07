@@ -1,0 +1,49 @@
+
+          <% if @ud.errors.any? %>
+            <h2>The following errors prevented the user from being saved</h2>
+            <% @ud.errors.full_messages.each do |msg| %>
+              <p><%= msg %></p>
+            <% end %>
+          <% end %> 
+          
+        <%= form_with scope: :customer_detail, url: customer_details_path, local: true do |f| %>
+          
+          <p> 
+            <%= f.hidden_field :id, value: params[:id]%>
+            <%= f.label :name, class: 'mb-2'  %>
+            <%= f.text_field :name,Placeholder: "Enter Vailed name", value: current_user.name , class: "form-control form-control-lg" %>
+          </p>
+
+          <p> 
+            <%= f.label :car_number, class: 'mb-2'  %>
+            <%= f.text_field :car_number,Placeholder: "Enter car number", autofocus: true, class: "form-control form-control-lg" %>
+          </p>
+
+          <p> 
+            <%= f.label :car_color, class: 'mb-2'  %>
+            <%= f.text_field :car_color,Placeholder: "Enter car color", autofocus: true, class: "form-control form-control-lg" %>
+          </p>
+
+          <p> 
+            <%= f.label :in_time, class: 'mb-2'  %>
+            <%= f.datetime_field :in_time, Placeholder: "Enter time", autofocus: true, class: "form-control form-control-lg"%>
+          </p>
+
+          <p> 
+            <%= f.label :out_time, class: 'mb-2'  %>
+            <%= f.datetime_field :out_time,Placeholder: "Enter time", autofocus: true, class: "form-control form-control-lg"%>
+          </p>
+
+          <p> 
+              <%= f.hidden_field :slot_id ,value: params[:id] %>
+          </p>
+
+          <p> 
+              <%= f.hidden_field :user_id ,value: current_user.id %>
+          </p>
+          
+          <p>
+            <%= f.submit 'submit', class: "btn btn-primary" %> 
+          </p>
+          
+        <% end %>

@@ -1,0 +1,31 @@
+<h2>edit floor</h2>
+<% if @floor.errors.any? %>
+  <h2>The following errors prevented the floor from being saved</h2>
+  <ul>
+    <% @floor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="card text-white bg-secondary mb-3" style="max-width: auto">
+  <div class= "col-lg-6 mx-lg-auto" style="margin: 50px; >
+    <div class="card shadow">
+      <div class="card-header bg-striped text-white">
+        <h2 class="card-title" >Edit Floor</h2>
+      </div>
+      <div class="card-body bg-info text-white">
+        <%= form_with(model: @floor, local: true) do |f| %>
+          <p> 
+            <%= f.label :number_of_floor, class: 'mb-2'    %><br/> 
+            <%= f.number_field :number_of_floor,Placeholder: "Enter Name", class: "form-control form-control-lg"  %>
+          </p>
+
+          <p>
+        <%= f.submit 'submit', class: "btn btn-primary" %> 
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>  

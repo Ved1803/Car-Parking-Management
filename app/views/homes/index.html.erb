@@ -1,0 +1,97 @@
+<span class="display-4">Car Parking Managemen  <%= link_to 'Apply For Booking', floors_path , class: "btn btn-primary" %></span>             
+<div class="main">
+</div>
+
+
+<%
+=begin%>
+ 
+<head>
+  <style>
+         table, th, td {
+            border: 1px solid black;
+            font-family: "Times New Roman", Times, serif;
+         }      
+  </style>
+</head>  
+
+
+<body>
+<table>
+  <thead>
+  </tr>
+      <th style="width:100px">Name</th>
+      <th style="width:250px">Email</th>
+    
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= current_user.name if current_user %></td>
+        <td><%= current_user.email  if current_user%></td>
+      </tr>
+    
+    
+  </tbody>
+</table>
+<%= link_to 'user_etail', user_details_path %> 
+<%
+=end%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%
+=begin%>
+ <ol>
+<li><%= link_to 'see floors', floors_path %></li>
+
+<% if !current_user.admin %>
+    <li><%= link_to 'see your booking', user_details_path %></li>
+<%else%>
+    <li><%= link_to 'see all booking', user_details_path %></li>
+<%end%>
+</ol> 
+<%
+=end%>

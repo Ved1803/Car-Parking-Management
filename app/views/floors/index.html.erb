@@ -1,0 +1,65 @@
+<h3> All Floors </h3>
+
+<div class="row text-bg-light " style="max-width: auto ">
+  <% @floor.each do |floor| %>  
+    <div class="card m-3"  >
+      <div  class="card-header"><strong>Floor Number: </strong><%= floor.number_of_floor %></div>
+      <div class="card-body">
+        <%= "This floor has #{floor.slots.count} slots"%>
+        <%= link_to 'Click', floor_path(floor), class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>  
+<%= link_to 'back', root_path, class: "btn btn-primary"%>
+<% if current_user.admin%>
+
+<%= link_to 'Add Floor', new_floor_path, class: "btn btn-primary" %>
+<%end%>
+
+
+
+ 
+
+
+
+<%
+=begin%>
+ 
+ <p><strong>Floor Id: </strong><%= floor.id %></p> 
+         <td><%= link_to 'Edit', edit_floor_path(floor)%></td>   
+<%
+=end%>
+
+
+<%
+=begin%>
+ <% @user_detail.floor.each do |car|%>
+            <li> <%= link_to 'apply for booking', new_user_detail_path(car)%> </li>
+            <%end%> 
+<%
+=end%>
+
+
+
+
+
+          <%
+=begin%>
+ <td><%= link_to 'Edit', edit_floor_path(floor) %></td>   
+<%
+=end%>
+    
+
+<%
+=begin%>
+
+<ul>
+# <li><%= link_to 'create floor', new_floor_path %></li>
+</ul>
+ 
+
+  <td><%= link_to 'Delete', floor_path(floor),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></td>
+          <td><%= link_to 'Edit', edit_floor_path(floor) %></td>  
+<%
+=end%>
